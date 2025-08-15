@@ -1,6 +1,11 @@
 import express from "express"
 import cookieParser from "cookie-parser";
 import cors from "cors";
+
+
+import healthCheckRouter from "./routes/healthcheck.routes.js";
+
+
 const app=express();
 
 
@@ -19,6 +24,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
+app.use("/api/v1/healthcheck", healthCheckRouter);
 
 app.get("/", (req, res) => {
   res.send("Welcome to basecampy");
