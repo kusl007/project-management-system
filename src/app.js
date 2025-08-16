@@ -1,14 +1,12 @@
-import express from "express"
+import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
-
+// import the routes
 import healthCheckRouter from "./routes/healthcheck.routes.js";
 import authRouter from "./routes/auth.routes.js";
 
-
-const app=express();
-
+const app = express();
 
 // basic configurations
 app.use(express.json({ limit: "16kb" }));
@@ -23,7 +21,7 @@ app.use(
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-  }),
+  })
 );
 app.use("/api/v1/healthcheck", healthCheckRouter);
 app.use("/api/v1/auth", authRouter);

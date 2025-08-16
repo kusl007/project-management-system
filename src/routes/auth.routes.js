@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { validate } from "../middlewares/validator.middleware.js";
-import { registerUser } from "../controllers/auth.controllers.js";
+import { registerUser,login } from "../controllers/auth.controllers.js";
 import {
   userChangeCurrentPasswordValidator,
   userForgotPasswordValidator,
@@ -13,6 +13,8 @@ const router = Router();
 
 // unsecured route
 router.route("/register").post(userRegisterValidator(), validate, registerUser);
+router.route("/login").post(userLoginValidator(), validate, login);
+
 
 
 export default router;
