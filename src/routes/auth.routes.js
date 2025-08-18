@@ -7,7 +7,10 @@ import {
   getCurrentUser,
   verifyEmail,
   resendEmailVerification,
-  refreshAccessToken
+  refreshAccessToken,
+  forgotPasswordRequest,
+  resetForgotPassword,
+  changeCurrentPassword
 } from "../controllers/auth.controllers.js";
 import {
   userChangeCurrentPasswordValidator,
